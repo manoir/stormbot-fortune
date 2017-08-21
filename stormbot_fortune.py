@@ -4,7 +4,7 @@ import random
 import argparse
 from pkg_resources import resource_string
 
-from .bot import Plugin
+from stormbot.bot import Plugin
 
 class Fortune(Plugin):
     def __init__(self, bot, args):
@@ -20,7 +20,7 @@ class Fortune(Plugin):
     def cmdparser(self, parser):
         subparser = parser.add_parser('fortune', bot=self._bot)
         subparser.set_defaults(command=self.run)
-        if 'stormbot.say' in sys.modules:
+        if 'stormbot_say' in sys.modules:
             subparser.add_argument("--say", dest="say", action="store_true", help="Say the fortune quote")
 
     def random(self):
