@@ -28,7 +28,7 @@ class Fortune(Plugin):
 
     def run(self, msg, parser, args):
         quote = self.random()
-        if args.say:
+        if getattr(args, 'say', False):
             say_args = ["say", quote]
             say_args = parser.parse_args(say_args)
             say_args.command(msg, parser, say_args)
