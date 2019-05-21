@@ -27,12 +27,11 @@ class Fortune(Plugin):
     def random(self):
         return random.choice(self._sentences)
 
-    def run(self, msg, parser, args, peer):
+    async def run(self, msg, parser, args, peer):
         quote = self.random()
         if getattr(args, 'say', False):
             msg['body'] = f"{self._bot.nick}: say {shlex.quote(quote)}"
             say_args = ["say", quote]
             say_args = parser.parse_args(say_args)
             say_args.command(msg, parser, say_args, peer)
-        else:
-            self._bot.write(quote)
+        self._bot.write(quote)
