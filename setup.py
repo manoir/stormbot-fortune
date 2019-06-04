@@ -10,7 +10,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(name='stormbot-fortune',
-      version='1.7.dev7',
+      version='2.0b1',
       description='fortune plugin for stormbot',
       long_description=long_description,
       author='Paul Fariello',
@@ -18,7 +18,7 @@ setup(name='stormbot-fortune',
       url='https://github.com/manoir/stormbot-fortune',
       packages=find_packages(),
       package_data={'stormbot_fortune': ['data/*.dic']},
-      install_requires=['Stormbot>=1.7.dev7'],
+      install_requires=['stormbot>=2.0b1'],
       entry_points={'stormbot.plugins': ['fortune = stormbot_fortune:Fortune']},
       classifiers=['Environment :: Console',
                    'Operating System :: POSIX',
