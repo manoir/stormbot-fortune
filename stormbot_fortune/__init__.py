@@ -33,5 +33,5 @@ class Fortune(Plugin):
             msg['body'] = f"{self._bot.nick}: say {shlex.quote(quote)}"
             say_args = ["say", quote]
             say_args = parser.parse_args(say_args)
-            say_args.command(msg, parser, say_args, peer)
+            await say_args.command(msg, parser, say_args, peer)
         self._bot.write(quote)
